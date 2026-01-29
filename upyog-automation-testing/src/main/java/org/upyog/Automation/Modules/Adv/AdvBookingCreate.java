@@ -1,5 +1,6 @@
 package org.upyog.Automation.Modules.Adv;
 
+import java.io.File;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
@@ -1018,8 +1019,20 @@ public class AdvBookingCreate {
         js.executeScript("arguments[0].style.opacity='1'; arguments[0].style.display='block';", fileInput);
         Thread.sleep(300);
 
-        fileInput.sendKeys(filePath);
+        fileInput.sendKeys(getAbsolutePath(filePath));
         System.out.println("Uploaded file at index " + index + ": " + filePath);
         Thread.sleep(500);
+    }
+
+    /**
+     * Converts relative path to absolute path for file uploads
+     * Selenium requires absolute paths for sendKeys() on file inputs
+     */
+    private String getAbsolutePath(String relativePath) {
+        File file = new File(relativePath);
+        if (!file.exists()) {
+            throw new RuntimeException("File not found: " + relativePath);
+        }
+        return file.getAbsolutePath();
     }
 }

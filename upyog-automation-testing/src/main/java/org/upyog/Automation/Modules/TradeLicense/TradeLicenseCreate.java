@@ -1,5 +1,6 @@
 package org.upyog.Automation.Modules.TradeLicense;
 
+import java.io.File;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -319,7 +320,7 @@ public class TradeLicenseCreate {
     private void uploadDocuments(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) throws InterruptedException {
         System.out.println("Uploading Documents");
         
-        String filePath = ConfigReader.get("document.identity.proof");
+        String filePath = ConfigReader.get("tl.document.identity.proof");
         
         // Upload first two documents with next clicks
         uploadDocumentAndClickNext(driver, wait, filePath);
@@ -329,7 +330,7 @@ public class TradeLicenseCreate {
         WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("tl-doc")));
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", fileInput);
         Thread.sleep(200);
-        fileInput.sendKeys(filePath);
+        fileInput.sendKeys(getAbsolutePath(filePath));
         System.out.println("Third document uploaded");
         
         clickButtonByHeader(driver, wait, "Next");
@@ -596,7 +597,7 @@ public class TradeLicenseCreate {
         WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("tl-doc")));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", fileInput);
         Thread.sleep(200);
-        fileInput.sendKeys(filePath);
+        fileInput.sendKeys(getAbsolutePath(filePath));
         System.out.println("Document uploaded: " + filePath);
 
         WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(
@@ -637,5 +638,17 @@ public class TradeLicenseCreate {
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", nextButton);
         Thread.sleep(200);
         nextButton.click();
+    }
+
+    /**
+     * Converts relative path to absolute path for file uploads
+     * Selenium requires absolute paths for sendKeys() on file inputs
+     */
+    private String getAbsolutePath(String relativePath) {
+        File file = new File(relativePath);
+        if (!file.exists()) {
+            throw new RuntimeException("File not found: " + relativePath);
+        }
+        return file.getAbsolutePath();
     }
 }

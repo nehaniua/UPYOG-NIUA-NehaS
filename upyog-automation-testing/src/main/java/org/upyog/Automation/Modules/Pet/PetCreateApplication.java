@@ -1,5 +1,6 @@
 package org.upyog.Automation.Modules.Pet;
 
+import java.io.File;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -380,7 +381,7 @@ public class PetCreateApplication {
                 WebElement fileInput = fileInputs.get(i);
                 js.executeScript("arguments[0].scrollIntoView(true);", fileInput);
                 Thread.sleep(100);
-                fileInput.sendKeys(filePaths[i]);
+                fileInput.sendKeys(getAbsolutePath(filePaths[i]));
                 Thread.sleep(100);
             } catch (Exception e) {
                 System.out.println("Error uploading file " + i + ": " + e.getMessage());
@@ -392,10 +393,22 @@ public class PetCreateApplication {
             WebElement petPhotoInput = driver.findElement(By.cssSelector("input[type='file']#upload"));
             js.executeScript("arguments[0].scrollIntoView(true);", petPhotoInput);
             Thread.sleep(100);
-            petPhotoInput.sendKeys(ConfigReader.get("document.pet.photo"));
+            petPhotoInput.sendKeys(getAbsolutePath(ConfigReader.get("document.pet.photo")));
             Thread.sleep(100);
         } catch (Exception e) {
             System.out.println("Error uploading pet photo: " + e.getMessage());
         }
+    }
+
+    /**
+     * Converts relative path to absolute path for file uploads
+     * Selenium requires absolute paths for sendKeys() on file inputs
+     */
+    private String getAbsolutePath(String relativePath) {
+        File file = new File(relativePath);
+        if (!file.exists()) {
+            throw new RuntimeException("File not found: " + relativePath);
+        }
+        return file.getAbsolutePath();
     }
 }
