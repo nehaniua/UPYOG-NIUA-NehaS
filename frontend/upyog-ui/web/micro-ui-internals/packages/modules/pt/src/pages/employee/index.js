@@ -48,6 +48,7 @@ const EmployeeApp = ({ path, url, userType }) => {
   };
 
   const searchMW = [{ combineTaxDueInSearchData }];
+  
 
   const breadcrumbObj = {
     ["/upyog-ui/employee/pt/inbox"]: "ES_TITLE_INBOX",
@@ -158,6 +159,7 @@ const EmployeeApp = ({ path, url, userType }) => {
   const DocsRequired = Digit?.ComponentRegistryService?.getComponent("PTDocsRequired");
   const isRes = window.location.href.includes("pt/response");
   const isLocation = window.location.href.includes("pt") || window.location.href.includes("application");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
   const isNewRegistration = window.location.href.includes("new-application") || window.location.href.includes("modify-application") || window.location.href.includes("pt/application-details");
   return (
     <Switch>
@@ -214,6 +216,14 @@ const EmployeeApp = ({ path, url, userType }) => {
           />
           <PrivateRoute path={`${path}/application-search`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
           <PrivateRoute path={`${path}/ulb-assesment`} component={(props) => <UlbAssesment {...props} parentRoute={path} />} />
+          <PrivateRoute path={`${path}/PTReceiptRegister`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="PTReceiptRegister" />} />
+          <PrivateRoute path={`${path}/PTCollectionReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="PTCollectionReport" />} />
+          <PrivateRoute path={`${path}/DefaulterReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="DefaulterReport" />} />
+          <PrivateRoute path={`${path}/PTGrievances`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="PTGrievances" />} />
+          <PrivateRoute path={`${path}/PTCoverageReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="PTCoverageReport" />} />
+          <PrivateRoute path={`${path}/PTTop20TaxPayers`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="pt-reports" reportName="PTTop20TaxPayers" />} />
+
+           
         </div>
       </React.Fragment>
     </Switch>

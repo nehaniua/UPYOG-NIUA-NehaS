@@ -21,7 +21,7 @@
   "dependencies": {
     "@upyog/digit-ui-libraries": "3.10.0",
     "@upyog/digit-ui-react-components": "3.10.0",
-    "@nudmcdgnpm/upyog-ui-module-gis": "1.0.3",
+    "@nudmcdgnpm/upyog-ui-module-gis": "1.0.4",
     "exif-js": "^2.3.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",

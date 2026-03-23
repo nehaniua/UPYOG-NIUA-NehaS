@@ -18,7 +18,7 @@ import TLSelectProofIdentity from "./pageComponents/TLSelectProofIdentity";
 import SelectOwnershipProof from "./pageComponents/SelectOwnershipProof";
 import SelectTradeName from "./pageComponents/SelectTradeName";
 import SelectStructureType from "./pageComponents/SelectStructureType";
-// import SelectVehicleType from "./pageComponents/SelectVehicleType";
+import TLSelectVehicleType from "./pageComponents/TLSelectVehicleType";
 import SelectVehicleType from "./pageComponents/SelectVehicleType";
 import SelectBuildingType from "./pageComponents/SelectBuildingType";
 import SelectCommencementDate from "./pageComponents/SelectCommencementDate";
@@ -62,6 +62,7 @@ import TLTradeUnitsEmployeeInitial from "./pageComponents/TLTradeUnitsEmployeeIn
 import CommonRedirect from "./pageComponents/CommonRedirect"
 import CitizenApp from "./pages/citizen";
 import EmployeeApp from "./pages/employee";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 
 export const TLModule = ({ stateCode, userType, tenants }) => {
   const { path, url } = useRouteMatch();
@@ -111,7 +112,7 @@ const componentsToRegister = {
   TradeLicense,
   SelectTradeName,
   SelectStructureType,
-  // SelectVehicleType,
+  TLSelectVehicleType,
   SelectVehicleType,
   SelectBuildingType,
   SelectCommencementDate,
@@ -162,7 +163,9 @@ const componentsToRegister = {
   SelectOtherTradeDetails,
   SelectTradeUnitsInitial,
   TLTradeUnitsEmployeeInitial,
-  CommonRedirect
+  CommonRedirect,
+  EnhancedReport,
+  ReportSearchApplication
 };
 
 export const initTLComponents = () => {

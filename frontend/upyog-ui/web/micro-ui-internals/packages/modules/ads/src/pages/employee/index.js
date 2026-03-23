@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link, Switch, useLocation } from "react-router-dom";
 import SearchApp from "./SearchApp";
 
+
 /* EmployeeApp component serves as the main application container for employee-related routes.
  * It utilizes the AppContainer, PrivateRoute, and other components for structured navigation.
  * The component handles rendering based on user types and different application states,
@@ -21,6 +22,7 @@ const EmployeeApp = ({ path, url, userType }) => {
   const ADSCreate = Digit?.ComponentRegistryService?.getComponent("ADSCreate");
   const ApplicationDetails = Digit?.ComponentRegistryService?.getComponent("ApplicationDetails");
   const isRes = window.location.href.includes("ads/response");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
   const isNewRegistration =
     window.location.href.includes("searchad") ||
     window.location.href.includes("modify-application") ||
@@ -47,6 +49,8 @@ const EmployeeApp = ({ path, url, userType }) => {
             <PrivateRoute path={`${path}/bookad`} component={ADSCreate} />
             <PrivateRoute path={`${path}/my-applications`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
             <PrivateRoute path={`${path}/applicationsearch/application-details/:id`} component={() => <ApplicationDetails parentRoute={path} />} />
+            <PrivateRoute path={`${path}/AdvApplicationReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-ads" reportName="AdvApplicationReport" />} />
+
 
           </div>
         </React.Fragment>

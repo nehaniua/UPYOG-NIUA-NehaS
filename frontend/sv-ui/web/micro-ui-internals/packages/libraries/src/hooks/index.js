@@ -32,6 +32,7 @@ import useStore from "./useStore";
 import { useTenants } from "./useTenants";
 import { useEvents, useClearNotifications, useNotificationCount } from "./events";
 import useCreateEvent from "./events/useCreateEvent";
+import useReportMeta from "./reports/useReport";
 import useUpdateEvent from "./events/useUpdateEvent";
 import useEventInbox from "./events/useEventInbox";
 import useEventDetails from "./events/useEventDetails";
@@ -76,6 +77,10 @@ const events = {
   useCreateEvent,
   useEventDetails,
   useUpdateEvent,
+};
+
+const reports = {
+  useReportMeta,
 };
 
 const Hooks = {
@@ -128,7 +133,8 @@ const Hooks = {
   useCustomBackNavigation,
   useRouteSubscription,
   sv,
-  events
+  events,
+  reports
 };
 
 export default Hooks;

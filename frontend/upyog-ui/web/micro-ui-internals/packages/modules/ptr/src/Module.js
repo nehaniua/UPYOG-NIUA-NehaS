@@ -23,6 +23,7 @@ import InboxFilter from "./components/inbox/NewInboxFilter";
 import { TableConfig } from "./config/inbox-table-config";
 import ApplicationDetails from "./pages/employee/ApplicationDetails";
 import NewApplication from "./pages/employee/NewApplication";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 
 
 // Registering all components to be used in the module
@@ -41,6 +42,8 @@ const componentsToRegister = {
   PTRSelectProofIdentity,
   PTRServiceDoc,
   PTRWFApplicationTimeline,
+  EnhancedReport,
+  ReportSearchApplication
 };
 
 // function of component registry to add entries in the registry

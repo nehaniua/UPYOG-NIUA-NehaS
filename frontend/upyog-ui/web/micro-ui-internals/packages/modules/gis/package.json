@@ -1,6 +1,6 @@
 {
     "name": "@nudmcdgnpm/upyog-ui-module-gis",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "license": "MIT",
     "main": "dist/index.js",
     "module": "dist/index.modern.js",

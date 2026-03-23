@@ -25,6 +25,7 @@ import EWASTEWFCaption from "./components/EWASTEWFCaption";
 import EWASTEWFReason from "./components/EWASTEWFReason";
 import EWASTEDocuments from "./pageComponents/EWASTEDocuments";
 import EWASTEDocumentView from "./components/EWASTEDocumentView";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 
 // Object containing all components to be registered with the Digit Component Registry Service
 const componentsToRegister = {
@@ -47,6 +48,8 @@ const componentsToRegister = {
   EWApplicationDetails: EWApplicationDetails, // Component for application details
   EwService, // Service for EW module
   EWASTEDocumentView, // Component for viewing documents
+  EnhancedReport,
+  ReportSearchApplication,
 };
 
 // Function to register components with the Digit Component Registry Service

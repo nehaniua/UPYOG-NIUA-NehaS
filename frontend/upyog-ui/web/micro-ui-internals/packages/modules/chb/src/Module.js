@@ -24,10 +24,11 @@ import { TableConfig } from "./config/inbox-table-config";
 import ApplicationDetails from "./pages/employee/ApplicationDetails";
 import Response from "./pages/Response";
 import SelectOtp from "../../core/src/pages/citizen/Login/SelectOtp";
-import CitizenFeedback from "@upyog/digit-ui-module-core/src/components/CitizenFeedback";
-import AcknowledgementCF from "@upyog/digit-ui-module-core/src/components/AcknowledgementCF";
+import CitizenFeedback from "../../core/src/components/CitizenFeedback";
+import AcknowledgementCF from "../../core/src/components/AcknowledgementCF";
 import CHBRequiredDoc from "./pageComponents/CHBRequiredDoc";
 import CHBMapView from "./components/CHBMapView";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 
 
 /**
@@ -79,7 +80,9 @@ const componentsToRegister = {
   CHBSearchHall,
   CHBWFApplicationTimeline,
   CHBRequiredDoc,
-  CHBMapView
+  CHBMapView,
+  EnhancedReport,
+  ReportSearchApplication
 };
 
 const addComponentsToRegistry = () => {

@@ -156,6 +156,8 @@ const EmployeeApp = ({ path, url, userType }) => {
   const ReNewApplication = Digit?.ComponentRegistryService?.getComponent('TLReNewApplication');
   const Response = Digit?.ComponentRegistryService?.getComponent('TLResponse');
   const Search = Digit?.ComponentRegistryService?.getComponent('TLSearch');
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
+  
 
   return (
     <Switch>
@@ -195,7 +197,20 @@ const EmployeeApp = ({ path, url, userType }) => {
           <PrivateRoute path={`${path}/edit-application-details/:id`} component={(props) => <ReNewApplication {...props} header={t("TL_ACTION_RESUBMIT")} parentRoute={path} />} />
           <PrivateRoute path={`${path}/response`} component={(props) => <Response {...props} parentRoute={path} />} />
           <PrivateRoute path={`${path}/search/:variant`} component={(props) => <Search {...props} parentRoute={path} />} />
-          
+
+        <PrivateRoute path={`${path}/TLRegistryReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TLRegistryReport" />} />
+        <PrivateRoute path={`${path}/StateTradeLicenseCancelledRegistryReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="StateTradeLicenseCancelledRegistryReport" />} />
+        <PrivateRoute path={`${path}/TradeLicenseCancelledRegistryReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeLicenseCancelledRegistryReport" />} />
+        <PrivateRoute path={`${path}/TradeWiseCollectionReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeWiseCollectionReport" />} />
+        <PrivateRoute path={`${path}/TradeLicenseApplicationStatusReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeLicenseApplicationStatusReport" />} />
+        <PrivateRoute path={`${path}/TradeLicenseULBWiseApplicationStatusReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeLicenseULBWiseApplicationStatusReport" />} />
+        <PrivateRoute path={`${path}/StateLevelStatus`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="StateLevelStatus" />} />
+        <PrivateRoute path={`${path}/StateLevelTradeWiseCollectionReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="StateLevelTradeWiseCollectionReport" />} />
+        <PrivateRoute path={`${path}/StateLevelTradeLicenseRegistryReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="StateLevelTradeLicenseRegistryReport" />} />
+        <PrivateRoute path={`${path}/TradeLicenseDailyCollectionReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeLicenseDailyCollectionReport" />} />
+        <PrivateRoute path={`${path}/TLApplicationStatusReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TLApplicationStatusReport" />} />
+        <PrivateRoute path={`${path}/TLRenewalPendingReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TLRenewalPendingReport" />} />
+        <PrivateRoute path={`${path}/TradeLicenseDefaulterReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tl" reportName="TradeLicenseDefaulterReport" />} />
         </div>
       </React.Fragment>
     </Switch>

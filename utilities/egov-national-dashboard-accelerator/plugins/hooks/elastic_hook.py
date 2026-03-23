@@ -2,7 +2,7 @@ import logging
 import requests
 import json
 from airflow import AirflowException
-from airflow.hooks.http_hook import HttpHook
+from airflow.providers.http.hooks.http import HttpHook
 
 
 #hook to call elastic search

@@ -37,6 +37,7 @@ const Urls = {
   Shortener: "/egov-url-shortening/shortener",
   UserCreateAddressV2: "/user/_createAddress", 
   employeeDashboardSearch: "/employee-dashboard/_search",
+  employeeRoleBaseDashboardSearch: "/employee-dashboard/v2/_search",
 
   fsm: {
     search: "/fsm/v1/_search",

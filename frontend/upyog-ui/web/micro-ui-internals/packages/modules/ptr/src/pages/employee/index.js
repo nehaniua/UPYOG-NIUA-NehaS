@@ -27,7 +27,6 @@ import Inbox from "./Inbox";
 // import PaymentDetails from "./PaymentDetails";
 import SearchApp from "./SearchApp";
 
-
 const EmployeeApp = ({ path, url, userType }) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -76,6 +75,7 @@ const EmployeeApp = ({ path, url, userType }) => {
   const NewApplication = Digit?.ComponentRegistryService?.getComponent("PTRNewApplication");
   const ApplicationDetails = Digit?.ComponentRegistryService?.getComponent("ApplicationDetails");
   const isRes = window.location.href.includes("ptr/response");
+    const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
   const isNewRegistration = window.location.href.includes("new-application") || window.location.href.includes("modify-application") || window.location.href.includes("ptr/application-details");
   return (
     <Switch>
@@ -116,6 +116,8 @@ const EmployeeApp = ({ path, url, userType }) => {
             )}
           />
           <PrivateRoute path={`${path}/petservice/my-applications`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
+          <PrivateRoute path={`${path}/PetReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-pet" reportName="PetReport" />} />
+          
         </div>
       </React.Fragment>
     </Switch>

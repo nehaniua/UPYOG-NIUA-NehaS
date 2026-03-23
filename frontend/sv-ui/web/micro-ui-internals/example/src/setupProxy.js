@@ -34,7 +34,8 @@ module.exports = function (app) {
     "/sv-services/street-vending/_search",
     "/sv-services/street-vending/_update",
     "/sv-services/street-vending/_deletedraft",
-    "/employee-dashboard/_search"
+    "/employee-dashboard/_search",
+    "/report",
   ].forEach((location) => app.use(location, createProxy));
 /**
  * Above loops through a list of API paths and applies the createProxy middleware to each one.

@@ -34,6 +34,7 @@ const EmployeeApp = ({ path, url, userType }) => {
  
 
   const ApplicationDetails = Digit?.ComponentRegistryService?.getComponent("ApplicationDetails");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
 
   const CHBCreate = Digit?.ComponentRegistryService?.getComponent("CHBCreate");
   const isRes = window.location.href.includes("chb/response");
@@ -68,6 +69,8 @@ const EmployeeApp = ({ path, url, userType }) => {
           <PrivateRoute path={`${path}/application-details/:id`} component={() => <ApplicationDetails parentRoute={path} />} />
           <PrivateRoute path={`${path}/applicationsearch/application-details/:id`} component={() => <ApplicationDetails parentRoute={path} />} />
           <PrivateRoute path={`${path}/my-applications`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
+          <PrivateRoute path={`${path}/CHBDailyRegisterReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-CHB" reportName="CHBDailyRegisterReport" />} />
+          <PrivateRoute path={`${path}/CHBRefundReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-CHB" reportName="CHBRefundReport" />} />
         </div>
         </React.Fragment>
       </AppContainer>

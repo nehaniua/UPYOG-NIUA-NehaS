@@ -11,6 +11,7 @@ import EmployeeLogin from "./Login";
 import UserProfile from "../citizen/Home/UserProfile";
 import ErrorComponent from "../../components/ErrorComponent";
 import { PrivateRoute } from "@upyog/digit-ui-react-components";
+import EmployeeDashboard from "../../components/EmployeeDashboard";
 
 const userScreensExempted = ["user/profile", "user/error"];
 
@@ -133,7 +134,14 @@ const EmployeeApp = ({
           <div className={`main ${DSO ? "m-auto" : ""}`}>
             <div className="employee-app-wrapper">
               <ErrorBoundary initData={initData}>
-                <AppModules stateCode={stateCode} userType="employee" modules={modules} appTenants={appTenants} />
+                <Switch>
+                  <PrivateRoute path={`${path}/dashboard`}>
+                    <EmployeeDashboard />
+                  </PrivateRoute>
+
+                  <AppModules stateCode={stateCode} userType="employee" modules={modules} appTenants={appTenants} />
+                </Switch>
+                {/* <AppModules stateCode={stateCode} userType="employee" modules={modules} appTenants={appTenants} /> */}
               </ErrorBoundary>
             </div>
             {/* <div className="footerr" style={{ width: '100%', bottom: 0,backgroundColor:"white",color:"black !important"}}>

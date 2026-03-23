@@ -29,7 +29,7 @@ import TPAcknowledgement from "./pages/citizen/Create/TPAcknowledgement";
 import MTApplicationDetails from "./pages/citizen/MTApplicationDetails";
 import TPApplicationDetails from "./pages/citizen/TPApplicationDetails";
 import MTCitizenCard from "./components/MTCitizenCard";
-
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 const componentsToRegister = {
     ApplicantDetails,
     AddressDetails,
@@ -52,6 +52,8 @@ const componentsToRegister = {
     TreePruningRequestDetails,
     MTAcknowledgement,
     TPAcknowledgement,
+    EnhancedReport,
+    ReportSearchApplication,
     MTCitizenCard: MTCitizenCard,
   };
   

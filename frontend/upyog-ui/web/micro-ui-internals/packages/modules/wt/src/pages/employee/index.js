@@ -58,6 +58,7 @@ const EmployeeApp = ({ path,userType }) => {
   };
 
   const ApplicationDetails = Digit?.ComponentRegistryService?.getComponent("ApplicationDetails");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
 
   // const Response = Digit?.ComponentRegistryService?.getComponent("CHBResponse");
   const WTCreate = Digit?.ComponentRegistryService?.getComponent("WTCreate");
@@ -120,6 +121,11 @@ const EmployeeApp = ({ path,userType }) => {
           <PrivateRoute path={`${path}/my-bookings`} component={(props) => <SearchApp {...props} parentRoute={path} moduleCode={"WT"}/>} />
           <PrivateRoute path={`${path}/mt/my-bookings`} component={(props) => <SearchApp {...props} parentRoute={path} moduleCode={"MT"}/>} />
           <PrivateRoute path={`${path}/tp/my-bookings`} component={(props) => <SearchApp {...props} parentRoute={path} moduleCode={"TP"}/>} />
+
+          <PrivateRoute path={`${path}/waterTankerRequestReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-wt" reportName="waterTankerRequestReport" />} />
+          <PrivateRoute path={`${path}/MobileToiletRequestRegister`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-mt" reportName="MobileToiletRequestRegister" />} />
+          <PrivateRoute path={`${path}/treePruningRequestRegister`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-tp" reportName="treePruningRequestRegister" />} />
+
         </div>
         </React.Fragment>
       </AppContainer>

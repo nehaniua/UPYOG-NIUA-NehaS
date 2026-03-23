@@ -40,7 +40,7 @@ import {
   PTRModule,
   PTRLinks,
   PTRComponents,
-} from "@upyog/upyog-ui-module-ptr";
+} from "@nudmcdgnpm/upyog-ui-module-ptr";
 import { ASSETComponents, ASSETLinks, ASSETModule } from "@upyog/upyog-ui-module-asset";
 
 import { 
@@ -57,7 +57,7 @@ import { VENDORComponents, VENDORLinks, VENDORModule } from "@upyog/upyog-ui-mod
 import { PGRAIComponents, PGRAILinks, PGRAIModule } from "@upyog/upyog-ui-module-pgrai";
 import { ASSETV2Components, ASSETV2Links, ASSETV2Module } from "@nudmcdgnpm/upyog-ui-module-asset-v2";
 import { GISComponents, GISLinks, GISModule } from "@nudmcdgnpm/upyog-ui-module-gis";
-import { ESTComponents, ESTLinks, ESTModule } from "@upyog/upyog-ui-module-est";
+import { ESTComponents, ESTLinks, ESTModule } from "@nudmcdgnpm/upyog-ui-module-est";
 import "leaflet/dist/leaflet.css";
 import "leaflet-draw/dist/leaflet.draw.css";
 

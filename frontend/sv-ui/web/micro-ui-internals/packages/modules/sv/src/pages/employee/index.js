@@ -11,6 +11,7 @@ import SearchApp from "./SearchApp";
  */
 const EmployeeApp = () => {
   const { path, url, ...match } = useRouteMatch();
+  console.log("match in employee app", path);
   const { t } = useTranslation();
   const location = useLocation();
   const isMobile = false
@@ -27,6 +28,7 @@ const EmployeeApp = () => {
 
  
   const SVEmpCreate = Digit?.ComponentRegistryService?.getComponent("SVEmpCreate");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
   const SVApplicationDetails = Digit?.ComponentRegistryService?.getComponent("SVApplicationDetails")
   return (
     <span className={"sv-citizen"}style={{width:"100%"}}>
@@ -50,6 +52,9 @@ const EmployeeApp = () => {
           <PrivateRoute path={`${path}/application-details/:id`} component={() => <SVApplicationDetails parentRoute={path} />} />
           <PrivateRoute path={`${path}/applicationsearch/application-details/:id`} component={() => <SVApplicationDetails parentRoute={path} />} />
           <PrivateRoute path={`${path}/my-applications`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
+
+          <PrivateRoute path={`${path}/StreetVendingReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="sv-report" reportName="StreetVendingReport" />} />
+
         </AppContainer>
       </Switch>
     </span>

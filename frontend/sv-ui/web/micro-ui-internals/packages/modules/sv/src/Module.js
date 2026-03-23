@@ -26,6 +26,9 @@ import Caption from "./components/Caption";
 import ViewTimeline from "./components/ViewTimeline";
 import SVSpecialCategory from "./pageComponents/SVSpecialCategory";
 import RenewPopup from "./components/RenewPopup";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
+
+
 
 const componentsToRegister = {
    Create:SVCreate,
@@ -46,7 +49,9 @@ const componentsToRegister = {
    Caption,
    ViewTimeline,
    SVSpecialCategory,
-   RenewPopup
+   RenewPopup,
+   ReportSearchApplication,
+   EnhancedReport
   };
   
   // function to register the component as per standard 

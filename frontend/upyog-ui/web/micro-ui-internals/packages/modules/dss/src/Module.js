@@ -75,6 +75,7 @@ Property Tax Assessment and Payment</div>
 Miscellaneous Collections</div>
         <div  style={{width:"90%",margin:"5%",backgroundColor:"white",fontWeight:"700",textAlign:"center",height:"50px",lineHeight:"3",cursor:"pointer"}}className="dashBoard" onClick = {(e)=>handClick(e,"national-fssm")}>
 Desludging Service</div>
+<div  style={{width:"90%",margin:"5%",backgroundColor:"white",fontWeight:"700",textAlign:"center",height:"50px",lineHeight:"3",cursor:"pointer"}}className="dashBoard" onClick = {(e)=>handClick(e,"national-sv")}>Street Vending</div>
       
       </div>
       <div className="chart-wrapper" style={isMobile ? {marginTop:"unset"} : {width:"100%"}}>

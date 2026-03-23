@@ -18,6 +18,7 @@ import ADSApplicationDetails from "./pages/citizen/ADSApplicationDetails";
 import ApplicationDetails from "./pages/employee/ApplicationDetails";
 import ADSSearchApplication from "./components/SearchApplication";
 import ADSRequiredDoc from "./pageComponents/ADSRequiredDoc";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
 // Component registry for the ADS module, mapping component names to their implementations.
 // Enables dynamic registration and access of components in the application.
 const componentsToRegister = {
@@ -33,7 +34,9 @@ const componentsToRegister = {
   ApplicationDetails: ApplicationDetails,
   ADSApplicationDetails: ADSApplicationDetails,
   ADSSearchApplication,
-  ADSRequiredDoc
+  ADSRequiredDoc,
+  EnhancedReport,
+  ReportSearchApplication
 };
 
 // Function to add components to the registry

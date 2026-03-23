@@ -19,7 +19,7 @@ const CloseBtn = (props) => {
 // The BookingPopup component renders a modal popup for booking functionality.
 // It provides options to either use existing booking details or fill in new details.
 
-const BookingPopup = ({ t, closeModal, onSubmit, setExistingDataSet }) => {
+const BookingPopup = ({ t, closeModal, onSubmit, setExistingDataSet , moduleKey}) => {
   const [showExistingBookingDetails, setShowExistingBookingDetails] = useState(false);
   const [isDataSet, setIsDataSet] = useState(false); // State to track if data has been set
   const handleExistingDetailsClick = () => {
@@ -52,7 +52,7 @@ const BookingPopup = ({ t, closeModal, onSubmit, setExistingDataSet }) => {
         formId="modal-action"
       >
         <Card style={{ boxShadow: "none" }}>
-          {showExistingBookingDetails && <ExistingBookingDetails onSubmit={onSubmit} setExistingDataSet={setExistingDataSet} />}
+          {showExistingBookingDetails && <ExistingBookingDetails onSubmit={onSubmit} setExistingDataSet={setExistingDataSet} moduleKey={moduleKey}/>}
           <div
             style={{
               display: "flex",

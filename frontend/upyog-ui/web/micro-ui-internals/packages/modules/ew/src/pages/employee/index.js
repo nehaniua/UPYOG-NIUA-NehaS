@@ -70,6 +70,7 @@ const EmployeeApp = ({ path }) => {
   };
 
   const ApplicationDetails = Digit?.ComponentRegistryService?.getComponent("EWApplicationDetails");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
 
   return (
     <Switch>
@@ -110,6 +111,8 @@ const EmployeeApp = ({ path }) => {
             path={`${path}/my-applications`} 
             component={(props) => <SearchApp {...props} parentRoute={path} />} 
           />
+          <PrivateRoute path={`${path}/DemandCollectionBalancedRegister`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-ws" reportName="DemandCollectionBalancedRegister" />} />
+          
         </div>
       </React.Fragment>
     </Switch>

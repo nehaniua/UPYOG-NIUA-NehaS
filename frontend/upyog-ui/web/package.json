@@ -6,17 +6,20 @@
   "workspaces": [
     "micro-ui-internals/packages/libraries",
     "micro-ui-internals/packages/react-components",
-    "micro-ui-internals/packages/modules/core",
     "micro-ui-internals/packages/modules/common",
-    "micro-ui-internals/packages/modules/assetv2",
-    "micro-ui-internals/packages/modules/gis",
-     "micro-ui-internals/packages/modules/est"
+    "micro-ui-internals/packages/modules/core",
+    "micro-ui-internals/packages/modules/dss",
+    "micro-ui-internals/packages/modules/engagement",
+    "micro-ui-internals/packages/modules/pt",
+    "micro-ui-internals/packages/modules/obps",
+    "micro-ui-internals/packages/modules/fsm",
+    "micro-ui-internals/packages/modules/wt"
   ],
   "engines": {
     "node": ">=14"
   },
   "dependencies": {
-    "@nudmcdgnpm/upyog-css": "1.2.8",
+    "@upyog-niua/upyog-css": "3.10.0",
     "@upyog/digit-ui-libraries": "3.10.0",
     "@upyog/digit-ui-module-bills": "3.10.0",
     "@upyog/digit-ui-module-common": "3.10.0",
@@ -24,29 +27,29 @@
     "@upyog/digit-ui-module-core": "3.10.0",
     "@upyog/digit-ui-module-dss": "3.10.0",
     "@upyog/digit-ui-module-engagement": "3.10.0",
-    "@upyog/digit-ui-module-fsm": "3.10.0",
+    "@upyog/digit-ui-module-fsm": "3.10.1",
     "@upyog/digit-ui-module-hrms": "3.10.0",
     "@upyog/digit-ui-module-mcollect": "3.10.0",
     "@upyog/digit-ui-module-noc": "3.10.0",
-    "@upyog/digit-ui-module-obps": "3.10.0",
+    "@upyog/digit-ui-module-obps": "3.10.3",
     "@upyog/digit-ui-module-pgr": "3.10.0",
-    "@upyog/digit-ui-module-pt": "3.10.0",
+    "@upyog/digit-ui-module-pt": "3.10.1",
     "@upyog/digit-ui-module-receipts": "3.0.1",
-    "@upyog/digit-ui-module-tl": "3.10.0",
+    "@upyog/digit-ui-module-tl": "3.10.3",
     "@upyog/digit-ui-module-ws": "3.10.0",
     "@upyog/digit-ui-react-components": "3.10.0",
     "@upyog/upyog-ui-module-ads": "3.10.0",
-    "@upyog/upyog-ui-module-asset": "3.10.0",
+    "@upyog/upyog-ui-module-asset": "3.10.2",
     "@upyog/upyog-ui-module-chb": "3.10.0",
     "@upyog/upyog-ui-module-ew": "3.10.0",
-    "@upyog/upyog-ui-module-ptr": "3.10.0",
+    "@upyog/upyog-ui-module-ptr": "3.10.2",
     "@upyog/upyog-ui-module-sv": "3.10.0",
-    "@upyog/upyog-ui-module-wt":"3.10.0",
-    "@upyog/upyog-ui-module-vendor":"3.10.0",
+    "@upyog/upyog-ui-module-wt":"3.10.1",
+    "@upyog/upyog-ui-module-vendor":"3.10.1",
     "@upyog/upyog-ui-module-pgrai":"3.10.0",
     "@nudmcdgnpm/upyog-ui-module-asset-v2":"1.0.0",
-    "@nudmcdgnpm/upyog-ui-module-gis": "1.0.3",
-    "@upyog/upyog-ui-module-est":"1.0.0",
+    "@nudmcdgnpm/upyog-ui-module-gis": "1.0.4",
+    "@nudmcdgnpm/upyog-ui-module-est":"1.0.0",
     "babel-loader": "8.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -71,7 +74,9 @@
     "**/q": "1.5.1",
     "**/cssesc": "3.0.0",
     "glob":"7.2.3",
-    "minimatch":"3.1.2"
+    "minimatch":"3.1.2",
+    "react-leaflet": "2.8.0",
+    "react-leaflet-draw": "0.19.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -89,3 +94,4 @@
    "not op_mini all"
  ]
 }
+

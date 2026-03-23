@@ -39,6 +39,10 @@ import EditGeneralDetails from "./pageComponents/EditGeneralDetails";
 import EditAssetDetails from "./pageComponents/EditAssetDetails";
 import EditResponse from "./pages/employee/EditResponse";
 import EditAssetMaintenance from "./pages/employee/EditAssetMaintenance";
+import { ReportSearchApplication, EnhancedReport } from "@nudmcdgnpm/digit-ui-module-reports";
+
+
+
 
 
 
@@ -75,8 +79,9 @@ const componentsToRegister = {
   editAsset:EditAsset,
   EditGeneralDetails,
   EditAssetDetails,
-  editResponse:EditResponse
-  
+  editResponse:EditResponse,
+  EnhancedReport,
+  ReportSearchApplication  
   
 };
 

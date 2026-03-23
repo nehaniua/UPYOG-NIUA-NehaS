@@ -62,6 +62,7 @@ const EmployeeApp = ({ path, url, userType }) => {
   const ReturnResponse = Digit?.ComponentRegistryService?.getComponent("returnResponse");
   const isRes = window.location.href.includes("asset/response");
   const isNewRegistration = window.location.href.includes("new-assets") || window.location.href.includes("asset/assetservice/application-details");
+  const EnhancedReport = Digit?.ComponentRegistryService?.getComponent("EnhancedReport");
 
   return (
     <Switch>
@@ -110,7 +111,15 @@ const EmployeeApp = ({ path, url, userType }) => {
           <PrivateRoute path={`${path}/assetservice/my-asset`} component={(props) => <SearchApp {...props} parentRoute={path} />} />
           <PrivateRoute path={`${path}/assetservice/report`} component={(props) => <SearchReport {...props} parentRoute={path} />} />
           <PrivateRoute path={`${path}/assetservice/edit-response`} component={(props) => <EditResponse {...props} parentRoute={path} />} />
-
+          <PrivateRoute path={`${path}/AssetapplicationReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetapplicationReport" />} />
+          <PrivateRoute path={`${path}/LandReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="LandReport" />} />
+          <PrivateRoute path={`${path}/AssetapplicationReportULBwise`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetapplicationReportULBwise" />} />
+          <PrivateRoute path={`${path}/AssetCountReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetCountReport" />} />
+          <PrivateRoute path={`${path}/AssetMaintenanceReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetMaintenanceReport" />} />
+          <PrivateRoute path={`${path}/AssetDisposalReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetDisposalReport" />} />
+          <PrivateRoute path={`${path}/AssetAssignmentReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="AssetAssignmentReport" />} />
+          <PrivateRoute path={`${path}/DetailedBuildingAssetsReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="DetailedBuildingAssetsReport" />} />
+          <PrivateRoute path={`${path}/PlantsMachineryReport`} component={(props) => <EnhancedReport {...props} parentRoute={path} moduleName="rainmaker-asset" reportName="PlantsMachineryReport" />} />
         </div>
       </React.Fragment>
       </AppContainer>
