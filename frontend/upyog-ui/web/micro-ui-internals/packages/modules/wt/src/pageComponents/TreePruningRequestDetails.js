@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FormStep, CardLabel, TextInput, UploadFile, Dropdown, LocationIcon } from "@upyog/digit-ui-react-components";
+import { getDigiPin } from "../../../../libraries/src/utils/digipin";
 
 const TreePruningRequestDetails = ({ t, config, onSelect, userType, formData }) => {
   const user = Digit.UserService.getUser().info;
@@ -7,6 +8,7 @@ const TreePruningRequestDetails = ({ t, config, onSelect, userType, formData }) 
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [geoTagLocation, setGeoTagLocation] = useState(formData?.treePruningRequestDetails?.geoTagLocation || "");
+  const [digipin, setDigipin] = useState(formData?.treePruningRequestDetails?.digipin || "");
   const [supportingDocumentFile, setSupportingDocumentFile] = useState(formData?.treePruningRequestDetails?.supportingDocumentFile || "");
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
@@ -64,6 +66,7 @@ const TreePruningRequestDetails = ({ t, config, onSelect, userType, formData }) 
         .finally(() => setIsUploading(false));
     }
   };
+  // Fetch user's current location (latitude & longitude), update state, and generate Digipin
   const fetchCurrentLocation = () => {
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
@@ -72,6 +75,12 @@ const TreePruningRequestDetails = ({ t, config, onSelect, userType, formData }) 
         setGeoTagLocation(`${latitude}, ${longitude}`); 
         setLatitude(latitude);
         setLongitude(longitude);
+        try {
+          const pin = getDigiPin(latitude, longitude);
+          setDigipin(pin);
+        } catch (error) {
+          console.error("Error generating Digipin:", error);
+        }
       },
       (error) => {
         console.error("Error getting location:", error);
@@ -136,6 +145,24 @@ const TreePruningRequestDetails = ({ t, config, onSelect, userType, formData }) 
             <LocationIcon className="fill-path-primary-main"/>
           </div>
         </div>
+        {digipin && (
+          <div style={{ 
+            marginTop: "10px", 
+            marginBottom: "16px",
+            padding: "12px 16px",
+            backgroundColor: "#f0f0f0",
+            borderRadius: "8px",
+            border: "1px solid #d4d4d4",
+            width: user.type === "EMPLOYEE" ? "50%" : "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}>
+            <div>
+              <strong>Digipin:</strong> {digipin}
+            </div>
+          </div>
+        )}
 
         {/* Upload Site Photograph */}
         <CardLabel>

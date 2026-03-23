@@ -2,6 +2,7 @@ import { CardLabel, CardLabelError, FormStep, LabelFieldPair, TextInput, Locatio
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Timeline from "../components/TLTimeline";
+import { getDigiPin } from "../../../../libraries/src/utils/digipin";
 
 const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, register, errors, setError, formState, clearErrors }) => {
   const tenants = Digit.Hooks.pt.useTenants();
@@ -15,6 +16,7 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
   // location and geolocation states
   const [locationText, setLocationText] = useState("");
   const [geoLocation, setGeoLocation] = useState(formData?.address?.geoLocation || {});
+  const [digipin, setDigipin] = useState(formData?.address?.digipin || "");
 
   let isEditProperty = formData?.isEditProperty || false;
   if (formData?.isUpdateProperty) isEditProperty = true;
@@ -36,7 +38,17 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
   const [pincodeServicability, setPincodeServicability] = useState(null);
   const [error, setLocalError] = useState("");
 
-  //  Get location
+  // Generate Digipin from coordinates using client-side function
+  const generateDigipin = (latitude, longitude) => {
+    try {
+      const pin = getDigiPin(latitude, longitude);
+      setDigipin(pin);
+    } catch (error) {
+      console.error("Error generating Digipin:", error);
+    }
+  };
+
+  // Fetch user's current location (latitude & longitude), update state, and generate Digipin
   const fetchCurrentLocation = () => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -46,6 +58,7 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
           const locationString = `${latitude}, ${longitude}`;
           setGeoLocation(location);
           setLocationText(locationString);
+          generateDigipin(latitude, longitude);
         },
         (error) => {
           console.error("Error getting location:", error);
@@ -69,6 +82,7 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
       const lng = parseFloat(coords[1].trim());
       if (!isNaN(lat) && !isNaN(lng)) {
         setGeoLocation({ latitude: lat, longitude: lng });
+        generateDigipin(lat, lng);
       }
     }
   };
@@ -98,7 +112,7 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
   const goNext = async (data) => {
     const foundValue = tenants?.find((obj) => obj.pincode?.find((item) => item == data?.pincode));
     if (foundValue || locationText) {
-      onSelect(config.key, { pincode, geoLocation });
+      onSelect(config.key, { pincode, geoLocation, digipin });
     } else {
       setPincodeServicability("PT_COMMON_PINCODE_NOT_SERVICABLE");
     }
@@ -153,6 +167,23 @@ const PTSelectPincode = ({ t, config, onSelect, formData = {}, userType, registe
           <LocationIcon styles={{ width: "16px", border: "none" }} className="fill-path-primary-main" />
         </div>
       </div>
+      {digipin && (
+        <div style={{ 
+          marginTop: "10px", 
+          padding: "19px 78px",
+          backgroundColor: "#f0f0f0",
+          borderRadius: "37px",
+          border: "1px solid #d4d4d4",
+          width: "50%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}>
+          <div>
+            <strong>Digipin:</strong> {digipin}
+          </div>
+        </div>
+      )}
     </div>
     <FormStep
       t={t}
