@@ -78,16 +78,24 @@
 		</dependency>
 
 		<dependency>
-			<groupId>ar.com.fdvs</groupId>
-			<artifactId>DynamicJasper</artifactId>
-			<version>5.0.2</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>jasperreports</artifactId>
-					<groupId>net.sf.jasperreports</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+    <groupId>ar.com.fdvs</groupId>
+    <artifactId>DynamicJasper</artifactId>
+    <version>5.3.8</version>
+    <exclusions>
+        <exclusion>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-functions</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
 
 <dependency>
     <groupId>com.jayway.jsonpath</groupId>

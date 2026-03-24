@@ -17,15 +17,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.pdfbox.printing.Orientation;
 import org.egov.common.entity.dcr.helper.DxfToPdfLayerConfig;
 import org.egov.common.entity.dcr.helper.PlanPdfLayerConfig;
 import org.egov.common.entity.edcr.Block;
 import org.egov.common.entity.edcr.EdcrPdfDetail;
 import org.egov.common.entity.edcr.Floor;
-import org.egov.common.entity.edcr.SetBack;
 import org.egov.commons.mdms.EDCRMdmsUtil;
 import org.egov.commons.mdms.config.MdmsConfiguration;
 import org.egov.commons.mdms.model.MdmsEdcrResponse;
@@ -38,7 +37,7 @@ import org.egov.edcr.utility.Util;
 import org.egov.infra.admin.master.entity.AppConfigValues;
 import org.egov.infra.admin.master.entity.City;
 import org.egov.infra.admin.master.service.AppConfigValueService;
-import org.egov.infra.admin.master.service.CityService;
+import org.egov.infra.admin.master.service.ICityService;
 import org.egov.infra.config.core.ApplicationThreadLocals;
 import org.egov.infra.microservice.models.RequestInfo;
 import org.json.simple.JSONObject;
@@ -66,7 +65,6 @@ import org.kabeja.xml.SAXSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Rectangle;
@@ -95,7 +93,7 @@ public class DxfToPdfConverterExtract extends FeatureExtract {
     @Autowired
     private MDMSValidator mdmsValidator;
     @Autowired
-    private CityService cityService;
+    private ICityService cityService;
 
     @Override
     public PlanDetail extract(PlanDetail planDetail) {
