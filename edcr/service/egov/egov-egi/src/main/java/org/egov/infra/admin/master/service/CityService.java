@@ -77,15 +77,18 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service("cityService")
 @Transactional(readOnly = true)
-public class CityService {
-
+public class CityService implements ICityService
+{
     private static final String CITY_DATA_CACHE_KEY = "%s-city-pref";
     private static final String CITY_LOGO_CACHE_KEY = "%s-city-logo";
     private static final String CITY_LOGO_HASH_KEY = "city-logo";
 
     private final CityRepository cityRepository;
+    public CityService() {
+        this.cityRepository = null;
+    }
 
     @Autowired
     private TenantUtils tenantUtils;

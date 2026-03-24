@@ -53,17 +53,13 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
-import org.egov.commons.mdms.BpaMdmsUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -90,7 +86,7 @@ import org.egov.edcr.entity.EdcrIndexData;
 import org.egov.edcr.entity.EdcrPdfDetail;
 import org.egov.edcr.utility.DcrConstants;
 import org.egov.infra.admin.master.entity.City;
-import org.egov.infra.admin.master.service.CityService;
+import org.egov.infra.admin.master.service.ICityService;
 import org.egov.infra.config.core.ApplicationThreadLocals;
 import org.egov.infra.config.core.EnvironmentSettings;
 import org.egov.infra.exception.ApplicationRuntimeException;
@@ -161,7 +157,7 @@ public class EdcrRestService {
     private TenantUtils tenantUtils;
 
     @Autowired
-    private CityService cityService;
+    private ICityService cityService;
 
     @Autowired
     private EdcrApplicationDetailService applicationDetailService;

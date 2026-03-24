@@ -8,6 +8,7 @@ import org.egov.edcr.repository.es.EdcrIndexRepository;
 import org.egov.edcr.utility.DcrConstants;
 import org.egov.infra.admin.master.entity.City;
 import org.egov.infra.admin.master.service.CityService;
+import org.egov.infra.admin.master.service.ICityService;
 import org.egov.infra.config.core.ApplicationThreadLocals;
 import org.egov.infra.elasticsearch.entity.ApplicationIndex;
 import org.egov.infra.elasticsearch.entity.enums.ApprovalStatus;
@@ -26,7 +27,7 @@ public class EdcrIndexService {
 	private static final String url = "/edcr/edcrapplication/view/%s";
 
 	@Autowired
-	private CityService cityService;
+	private ICityService cityService;
 
 	@Autowired
 	private EdcrIndexRepository edcrIndexRepository;

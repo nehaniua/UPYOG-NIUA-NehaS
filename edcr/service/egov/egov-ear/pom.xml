@@ -22,6 +22,13 @@
 			<version>2.1.1-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>javax.persistence-api</artifactId>
+    <version>2.2</version>
+
+</dependency>
+
 		<dependency>
 			<groupId>org.egov.edcr</groupId>
 			<artifactId>egov-edcrweb</artifactId>
@@ -54,9 +61,52 @@
 			<artifactId>egov-edcr-extract</artifactId>  
 		</dependency>
 		<dependency>
+    <groupId>javax.validation</groupId>
+    <artifactId>validation-api</artifactId>
+    <version>2.0.1.Final</version>
+</dependency>
+		<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+</dependency>
+		 <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+    </dependency>
+
+    <!-- ADD: Hibernate must be here to get packaged into EAR/lib -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-envers</artifactId>
+    </dependency>
+    <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-ehcache</artifactId>
+    <version>5.6.15.Final</version> 
+    
+</dependency>
+<dependency>
+    <groupId>net.sf.ehcache</groupId>
+    <artifactId>ehcache-core</artifactId>
+    <version>2.6.11</version>
+</dependency>
+		<dependency>
 			<groupId>org.egov.edcr</groupId>
 			<artifactId>egov-edcr</artifactId>
 		</dependency>
+		<dependency>
+    <groupId>org.javassist</groupId>
+    <artifactId>javassist</artifactId>
+</dependency>
 		<!-- EAR Java Dependencies Ends -->
 
 		<!-- MISC START -->

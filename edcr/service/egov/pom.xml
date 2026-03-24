@@ -28,23 +28,30 @@
 	</scm>
 
 	<distributionManagement>
+		
 		<repository>
 			<id>repo.egovernments.org</id>
 			<name>eGov ERP Releases Repository</name>
-			<url>http://repo.egovernments.org/nexus/content/repositories/releases/</url>
+			<url>https://upyog-nexus.niua.org/nexus/content/repositories/releases/</url>
 		</repository>
+		
 		<snapshotRepository>
 			<id>repo.egovernments.org</id>
 			<name>eGov ERP Snapshots Repository</name>
-			<url>http://repo.egovernments.org/nexus/content/repositories/snapshots/</url>
+			<url>https://upyog-nexus.niua.org/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<repositories>
+
+ <repository>
+        <id>jasperreports</id>
+        <url>https://jasperreports.sourceforge.net/maven2</url>
+    </repository>
 		<repository>
 			<id>repo.egovernments.org</id>
 			<name>eGov Public Repository Group</name>
-			<url>http://repo.egovernments.org/nexus/content/groups/public/</url>
+			<url>https://upyog-nexus.niua.org/nexus/content/groups/public/</url>
 			<snapshots>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
@@ -55,16 +62,16 @@
 		</repository>
 		<repository>
 			<id>JBoss Repository</id>
-			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+			<url>https://upyog-nexus.niua.org/nexus/content/groups/public/</url>
 		</repository>
 		<repository>
 			<id>AsposeJavaAPI</id>
 			<name>Aspose Java API</name>
-			<url>http://releases.aspose.com/repo/</url>
+			<url>https://upyog-nexus.niua.org/repo/</url>
 		</repository> 
 		<repository>
 			<id>javaxt.com</id>
-			<url>https://www.javaxt.com/maven</url>
+			<url>https://upyog-nexus.niua.org/maven</url>
 		</repository>
 	</repositories>
 
@@ -72,7 +79,7 @@
 		<pluginRepository>
 			<id>repo.egovernments.org</id>
 			<name>eGov Public Repository Group</name>
-			<url>http://repo.egovernments.org/nexus/content/groups/public/</url>
+			<url>https://upyog-nexus.niua.org/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -104,10 +111,10 @@
 
 
 		<!-- Application server provided dependency versions -->
-		<hibernate-version>5.1.10.Final</hibernate-version>
+		<hibernate-version>5.6.15.Final</hibernate-version>
 		<hibernate-search-version>5.5.8.Final</hibernate-search-version>
-		<hibernate-validator-version>5.3.5.Final</hibernate-validator-version>
-		<javax-validation-version>1.1.0.Final</javax-validation-version>
+		<hibernate-validator-version>5.4.3.Final</hibernate-validator-version>
+		<javax-validation-version>2.0.1.Final</javax-validation-version>
 		<javax-servlet-api-version>1.0.0.Final</javax-servlet-api-version>
 		<javax-servlet-jstl-version>1.2.6-RC1</javax-servlet-jstl-version>
 		<javax-servlet-jsp-version>1.0.1.Final</javax-servlet-jsp-version>
@@ -132,9 +139,9 @@
 		<apache-tiles-version>3.0.7</apache-tiles-version>
 		<embedded-redis-version>0.6</embedded-redis-version>
 		<quartz-version>2.3.0</quartz-version>
-		<jasper-report-version>6.1.0</jasper-report-version>
+		<jasper-report-version>6.20.0</jasper-report-version>
 		<json-simple-version>1.1.1</json-simple-version>
-		<jackson-version>2.9.2</jackson-version>
+		<jackson-version>2.13.5</jackson-version>
 		<orika-core.version>1.5.2</orika-core.version>
 		<gson-version>2.8.2</gson-version>
 		<antisamy-version>1.5.6</antisamy-version>
@@ -191,7 +198,7 @@
 		<mvn.ear.plugin.version>2.10.1</mvn.ear.plugin.version>
 		<mvn.war.plugin.version>3.2.0</mvn.war.plugin.version>
 		<mvn.jar.plugin.version>3.0.2</mvn.jar.plugin.version>
-		<mvn.compiler.plugin.version>3.7.0</mvn.compiler.plugin.version>
+		<mvn.compiler.plugin.version>3.11.0</mvn.compiler.plugin.version>
 		<mvn.dependency.plugin.version>3.0.2</mvn.dependency.plugin.version>
 		<mvn.resource.plugin.version>3.0.1</mvn.resource.plugin.version>
 	</properties>
@@ -207,6 +214,10 @@
 						<artifactId>snakeyaml</artifactId>
 						<groupId>org.yaml</groupId>
 					</exclusion>
+					<exclusion>
+    <groupId>tomcat</groupId>
+    <artifactId>jasper-compiler-jdt</artifactId>
+</exclusion>
 				</exclusions>
 			</dependency>
 
@@ -242,6 +253,11 @@
 				<version>2.1.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
+    <groupId>org.javassist</groupId>
+    <artifactId>javassist</artifactId>
+    <version>3.29.2-GA</version>
+</dependency>
+			<dependency>
 				<groupId>org.egov.edcr</groupId>
 				<artifactId>egov-edcr</artifactId>
 				<version>2.1.1-SNAPSHOT</version>
@@ -251,37 +267,40 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
 				<version>${hibernate-version}</version>
-				<scope>provided</scope>
+				 
+				
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${hibernate-version}</version>
-				<scope>provided</scope>
+				
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-envers</artifactId>
 				<version>${hibernate-version}</version>
-				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-infinispan</artifactId>
-				<version>${hibernate-version}</version>
-				<scope>provided</scope>
-			</dependency>
+			
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-infinispan</artifactId>
+    <version>${hibernate-version}</version>
+</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${hibernate-validator-version}</version>
-				<scope>provided</scope>
+				
+				
 			</dependency>
 			<dependency>
 				<groupId>javax.validation</groupId>
 				<artifactId>validation-api</artifactId>
 				<version>${javax-validation-version}</version>
-				<scope>provided</scope>
+			
+				
+				
 			</dependency>
 			<!-- <dependency> <groupId>org.jadira.usertype</groupId> <artifactId>usertype.core</artifactId> 
 				<version>4.0.0.GA</version> </dependency> <dependency> <groupId>org.jadira.usertype</groupId> 
@@ -315,6 +334,18 @@
 			</dependency>
 			
 			<dependency>
+    <groupId>org.objenesis</groupId>
+    <artifactId>objenesis</artifactId>
+    <version>3.3</version>
+</dependency>
+
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>3.3.0</version>
+</dependency>
+			
+			<dependency>
 				<groupId>org.jboss.spec.javax.servlet.jsp</groupId>
 				<artifactId>jboss-jsp-api_2.3_spec</artifactId>
 				<version>${javax-servlet-jsp-version}</version>
@@ -346,10 +377,7 @@
 				<artifactId>struts2-core</artifactId>
 				<version>${struts2-version}</version>
 				<exclusions>
-					<exclusion>
-						<groupId>org.javassist</groupId>
-						<artifactId>javassist</artifactId>
-					</exclusion>
+				
 					<exclusion>
 						<groupId>org.apache.logging.log4j</groupId>
 						<artifactId>log4j-api</artifactId>
@@ -453,12 +481,7 @@
 				<groupId>ma.glasnost.orika</groupId>
 				<artifactId>orika-core</artifactId>
 				<version>${orika-core.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.javassist</groupId>
-						<artifactId>javassist</artifactId>
-					</exclusion>
-				</exclusions>
+				
 			</dependency>
 			<!-- End Orika -->
 
@@ -500,7 +523,10 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-
+<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+</dependency>
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-elasticsearch</artifactId>
@@ -572,6 +598,12 @@
 				<artifactId>embedded-redis</artifactId>
 				<version>${embedded-redis-version}</version>
 			</dependency>
+			<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>javax.persistence-api</artifactId>
+    <version>2.2</version>
+   
+</dependency>
 			<!-- EMBEDDED REDIS ENDS -->
 
 			<!-- QUARTZ START -->
@@ -645,11 +677,7 @@
 				<artifactId>jasperreports-functions</artifactId>
 				<version>${jasper-report-version}</version>
 			</dependency>
-			<dependency>
-				<groupId>net.sf.jasperreports</groupId>
-				<artifactId>jasperreports-javaflow</artifactId>
-				<version>${jasper-report-version}</version>
-			</dependency>
+			
 			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
@@ -670,11 +698,7 @@
 				<artifactId>itext</artifactId>
 				<version>${itext-version}</version>
 			</dependency>
-			<dependency>
-				<groupId>commons-javaflow</groupId>
-				<artifactId>commons-javaflow</artifactId>
-				<version>${commons-javaflow-version}</version>
-			</dependency>
+			
 			<dependency>
 				<groupId>net.sourceforge.jexcelapi</groupId>
 				<artifactId>jxl</artifactId>
@@ -704,6 +728,11 @@
 				<version>${commons-lang3-version}</version>
 			</dependency>
 			<dependency>
+    <groupId>com.fasterxml.jackson.dataformat</groupId>
+    <artifactId>jackson-dataformat-xml</artifactId>
+    <version>2.13.5</version>
+</dependency>
+			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-email</artifactId>
 				<version>${commons-email-version}</version>
@@ -715,6 +744,12 @@
 				</exclusions>
 			</dependency>
 			<dependency>
+    <groupId>com.fasterxml.woodstox</groupId>
+    <artifactId>woodstox-core</artifactId>
+    <version>6.5.1</version>
+</dependency>
+			<dependency>
+				
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons-collections-version}</version>
@@ -1418,6 +1453,7 @@
 					<artifactId>log4j</artifactId>
 				</exclusion>
 			</exclusions>
+			
 		</dependency>
 	</dependencies>
 
@@ -1433,8 +1469,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${mvn.compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>17</source>
+					<target>17</target>
 				</configuration>
 			</plugin>
 			<plugin>
