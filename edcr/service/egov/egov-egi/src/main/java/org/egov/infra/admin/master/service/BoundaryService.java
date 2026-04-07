@@ -120,7 +120,7 @@ public class BoundaryService {
     }
 
     public Boundary getBoundaryById(final Long id) {
-        return boundaryRepository.findOne(id);
+        return boundaryRepository.findById(id).orElse(null);
     }
 
     public List<Boundary> getAllBoundariesOrderByBoundaryNumAsc(BoundaryType boundaryType) {
@@ -132,7 +132,7 @@ public class BoundaryService {
     }
 
     public Page<Boundary> getPageOfBoundaries(BoundarySearchRequest searchRequest) {
-        Pageable pageable = new PageRequest(searchRequest.pageNumber(), searchRequest.pageSize(),
+        Pageable pageable = PageRequest.of(searchRequest.pageNumber(), searchRequest.pageSize(),
                 searchRequest.orderDir(), searchRequest.orderBy());
         return boundaryRepository.findByBoundaryTypeId(searchRequest.getBoundaryTypeId(), pageable);
     }

@@ -54,11 +54,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <context:property-placeholder/>
-
+    <context:property-placeholder location="classpath:config/application-config.properties"/>
     <import resource="applicationSecurityContext-egi.xml"/>
 
-    <context:component-scan base-package="org.egov.infra.web">
+    <context:component-scan base-package="org.egov">
+        <context:exclude-filter type="regex" expression="org\.egov\.edcr\..*"/>
+        <context:exclude-filter type="regex" expression="org\.egov\.commons\..*"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 

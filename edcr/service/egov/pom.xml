@@ -64,16 +64,16 @@
 			<id>JBoss Repository</id>
 			<url>https://upyog-nexus.niua.org/nexus/content/groups/public/</url>
 		</repository>
-		<!--<repository>
-			<id>AsposeJavaAPI</id>
-			<name>Aspose Java API</name>
-			<url>https://repository.aspose.com/repo/</url>
-		</repository>-->
 		<repository>
 			<id>AsposeJavaAPI</id>
 			<name>Aspose Java API</name>
+			<url>https://repository.aspose.com/repo/</url>
+		</repository>
+		<!--<repository>
+			<id>AsposeJavaAPI</id>
+			<name>Aspose Java API</name>
 			<url>https://upyog-nexus.niua.org/repo/</url>
-		</repository> 
+		</repository> -->
 		<repository>
 			<id>javaxt.com</id>
 			<url>https://upyog-nexus.niua.org/maven</url>
@@ -127,18 +127,18 @@
 		<javax-mail-version>1.5.6</javax-mail-version>
 		<javax-el-version>3.0.1-b08</javax-el-version>
 		<xerces-version>2.11.0.SP5</xerces-version>
-		<postgres-version>42.7.1</postgres-version>
+		<postgres-version>42.7.10</postgres-version>
 
 		<!-- Other application dependency versions -->
-		<struts2-version>2.5.14.1</struts2-version>
+		<!--<struts2-version>2.5.14.1</struts2-version>
 		<struts2-jquery-version>4.0.2</struts2-jquery-version>
-		<xstream-version>1.4.10</xstream-version>
-		<spring-version>4.3.11.RELEASE</spring-version>
-		<spring-session-version>1.3.2.RELEASE</spring-session-version>
-		<spring-data-jpa-version>1.10.6.RELEASE</spring-data-jpa-version>
-		<spring-data-jpa-envers-version>1.0.6.RELEASE</spring-data-jpa-envers-version>
-		<spring-security-version>4.2.3.RELEASE</spring-security-version>
-		<spring-security-oauth2-version>2.2.0.RELEASE</spring-security-oauth2-version>
+		<xstream-version>1.4.10</xstream-version>-->
+		<spring-version>5.3.31</spring-version>
+		<spring-session-version>2.7.4</spring-session-version>
+        <spring-data-jpa-version>2.7.18</spring-data-jpa-version>
+		<spring-data-jpa-envers-version>2.7.18</spring-data-jpa-envers-version>
+		<spring-security-version>5.7.11</spring-security-version>
+		<spring-security-oauth2-version>2.5.2.RELEASE</spring-security-oauth2-version>
 		<spring-data-elasticsearch>2.0.6.RELEASE</spring-data-elasticsearch>
 		<elastic-search-version>2.4.6</elastic-search-version>
 		<apache-tiles-version>3.0.7</apache-tiles-version>
@@ -210,7 +210,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+			<!--<dependency>
 				<groupId>org.elasticsearch</groupId>
 				<artifactId>elasticsearch</artifactId>
 				<version>${elastic-search-version}</version>
@@ -224,7 +224,7 @@
     <artifactId>jasper-compiler-jdt</artifactId>
 </exclusion>
 				</exclusions>
-			</dependency>
+			</dependency> -->
 
 			<dependency>
 				<groupId>org.egov.edcr</groupId>
@@ -375,7 +375,7 @@
 			<!-- SERVLET SPEC JBOSS DEPENDENCIES END -->
 
 			<!-- STRUTS2 DEPENDENCIES START -->
-			<dependency>
+				<!--<dependency>
 				<groupId>org.apache.struts</groupId>
 				<artifactId>struts2-core</artifactId>
 				<version>${struts2-version}</version>
@@ -413,7 +413,7 @@
 				<groupId>com.thoughtworks.xstream</groupId>
 				<artifactId>xstream</artifactId>
 				<version>${xstream-version}</version>
-			</dependency>
+			</dependency>-->
 			<!-- STRUTS2 DEPENDENCIES END -->
 
 			<!-- JSON START -->
@@ -490,47 +490,30 @@
 
 			<!-- SPRING START -->
 			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-framework-bom</artifactId>
-				<version>${spring-version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-framework-bom</artifactId>
+    <version>5.3.31</version>
+    <type>pom</type>
+    <scope>import</scope>
+</dependency>	
 
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-jpa</artifactId>
-				<version>${spring-data-jpa-version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.springframework.data</groupId>
-						<artifactId>spring-data-commons</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-envers</artifactId>
-				<version>${spring-data-jpa-envers-version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.session</groupId>
-				<artifactId>spring-session-data-redis</artifactId>
-				<version>${spring-session-version}</version>
-				<exclusions>
-					<exclusion>
-						<artifactId>commons-logging</artifactId>
-						<groupId>commons-logging</groupId>
-					</exclusion>
-				</exclusions>
-			</dependency>
 <dependency>
-    <groupId>com.fasterxml.jackson.dataformat</groupId>
-    <artifactId>jackson-dataformat-xml</artifactId>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-bom</artifactId>
+    <version>2021.2.18</version>
+    <type>pom</type>
+    <scope>import</scope>
 </dependency>
-			<dependency>
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-bom</artifactId>
+    <version>2021.2.3</version>
+    <type>pom</type>
+    <scope>import</scope>
+</dependency>
+
+
+			<!--<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-elasticsearch</artifactId>
 				<version>${spring-data-elasticsearch}</version>
@@ -540,7 +523,7 @@
 						<artifactId>spring-data-commons</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
+			</dependency> -->
 			<!-- SPRING END -->
 
 			<!-- SECURITY START -->
@@ -733,7 +716,7 @@
 			<dependency>
     <groupId>com.fasterxml.jackson.dataformat</groupId>
     <artifactId>jackson-dataformat-xml</artifactId>
-    <version>2.13.5</version>
+    <version>${jackson-version}</version>
 </dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
@@ -1118,6 +1101,30 @@
 				<artifactId>wsdl4j</artifactId>
 				<version>${wsdl4j-version}</version>
 			</dependency>
+			<!-- Add these explicitly in dependencyManagement -->
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-commons</artifactId>
+    <version>2.7.18</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>2.7.18</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-data-redis</artifactId>
+  
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.session</groupId>
+    <artifactId>spring-session-core</artifactId>
+   
+</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -1246,18 +1253,26 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-data-redis</artifactId>
+			 <version>${spring-session-version}</version> 
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-elasticsearch</artifactId>
-		</dependency>
+	<!-- Comment out for now in both dependencyManagement AND dependencies -->
+<!-- <dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-elasticsearch</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.elasticsearch</groupId>
+    <artifactId>elasticsearch</artifactId>
+</dependency> -->
 		<!-- SPRING DEPENDENCIES END -->
 
 		<!-- EMBEDDED REDIS SERVER START -->
+		<!-- ADD this to dependencyManagement imports -->
 		<dependency>
 			<groupId>com.orange.redis-embedded</groupId>
 			<artifactId>embedded-redis</artifactId>
@@ -1265,10 +1280,7 @@
 		<!-- EMBEDDED REDIS SERVER END -->
 
 		<!-- ELASTICSEARCH DEPENDANCY STARTS -->
-		<dependency>
-			<groupId>org.elasticsearch</groupId>
-			<artifactId>elasticsearch</artifactId>
-		</dependency>
+	
 		<!-- ELASTICSEARCH DEPENDANCY ENDS -->
 
 		<!-- MISC STARTS -->
@@ -1474,6 +1486,12 @@
 				<configuration>
 					<source>17</source>
 					<target>17</target>
+					<excludes>
+            <exclude>**/elasticsearch/**</exclude>
+            <exclude>**/repository/es/**</exclude>
+            <exclude>**/entity/es/**</exclude>
+            <exclude>**/config/elasticsearch/**</exclude>
+        </excludes>
 				</configuration>
 			</plugin>
 			<plugin>

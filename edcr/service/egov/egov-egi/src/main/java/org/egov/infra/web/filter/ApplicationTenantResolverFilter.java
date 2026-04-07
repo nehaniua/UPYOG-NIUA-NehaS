@@ -108,7 +108,7 @@ public class ApplicationTenantResolverFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        MultiReadRequestWrapper customRequest = new MultiReadRequestWrapper(req);
+        MultiReadRequestWrapper customRequest = new MultiReadRequestWrapper(req); 
         HttpSession session = customRequest.getSession();
         LOG.info("Request URL-->" + customRequest.getRequestURL());
         LOG.info("Request URI-->" + customRequest.getRequestURI());
@@ -142,7 +142,8 @@ public class ApplicationTenantResolverFilter implements Filter {
         String requestURL = new StringBuilder().append(ApplicationThreadLocals.getDomainURL())
                 .append(customRequest.getRequestURI()).toString();
         if (requestURL.contains(tenants.get("state"))
-                && (requestURL.contains("/edcr/") && (requestURL.contains("/rest/")
+                &&
+                (requestURL.contains("/edcr/") && (requestURL.contains("/rest/")
                         || requestURL.contains("/oauth/")))) {
 
             LOG.debug("All tenants from config" + tenants);

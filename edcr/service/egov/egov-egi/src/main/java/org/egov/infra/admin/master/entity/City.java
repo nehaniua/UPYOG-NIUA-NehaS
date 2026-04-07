@@ -49,7 +49,6 @@
 package org.egov.infra.admin.master.entity;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
-import static org.egov.infra.admin.master.entity.City.QUERY_CITY_BY_URL;
 import static org.egov.infra.admin.master.entity.City.SEQ_CITY;
 import static org.egov.infra.utils.ApplicationConstant.CITY_CAPTCHA_PRIV_KEY;
 import static org.egov.infra.utils.ApplicationConstant.CITY_CAPTCHA_PUB_KEY;
@@ -85,7 +84,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -104,7 +102,6 @@ import org.hibernate.validator.constraints.SafeHtml;
 @Entity
 @Unique(fields = "domainURL", enableDfltMsg = true)
 @Table(name = "eg_city")
-@NamedQuery(name = QUERY_CITY_BY_URL, query = "Select cw FROM City cw WHERE cw.domainURL=:domainURL")
 @SequenceGenerator(name = SEQ_CITY, sequenceName = SEQ_CITY, allocationSize = 1)
 @Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
 public class City extends AbstractAuditable {

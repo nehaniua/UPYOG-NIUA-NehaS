@@ -48,9 +48,24 @@
 
 package org.egov.infra.admin.master.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.common.base.Objects;
-import com.google.gson.annotations.Expose;
+import static org.egov.infra.admin.master.entity.Boundary.SEQ_BOUNDARY;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 import org.egov.infra.persistence.entity.AbstractAuditable;
 import org.egov.infra.persistence.validator.annotation.CompositeUnique;
 import org.egov.infra.persistence.validator.annotation.DateFormat;
@@ -62,30 +77,14 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import static org.egov.infra.admin.master.entity.Boundary.SEQ_BOUNDARY;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.common.base.Objects;
+import com.google.gson.annotations.Expose;
 
 @Entity
 @CompositeUnique(fields = {"boundaryNum", "boundaryType"}, enableDfltMsg = true)
 @Unique(fields = "code", enableDfltMsg = true)
 @Table(name = "EG_BOUNDARY")
-@NamedQuery(name = "Boundary.findBoundariesByBoundaryType",
-        query = "select b from Boundary b where b.boundaryType.id = :boundaryTypeId")
 @SequenceGenerator(name = SEQ_BOUNDARY, sequenceName = SEQ_BOUNDARY, allocationSize = 1)
 public class Boundary extends AbstractAuditable {
 
