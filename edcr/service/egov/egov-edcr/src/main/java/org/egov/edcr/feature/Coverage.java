@@ -256,7 +256,7 @@ public class Coverage extends FeatureProcess {
 		// defined range.
 		// If a matching rule is found, proceed with its processing.
 
-		List<Object> rules = cache.getFeatureRules(pl, FeatureEnum.COVERAGE.getValue(), true);
+		List<Object> rules = cache.getFeatureRules(pl, FeatureEnum.COVERAGE.getValue(), false);
 
 		Optional<CoverageRequirement> matchedRule = rules.stream()
 		    .filter(CoverageRequirement.class::isInstance)
